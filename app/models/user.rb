@@ -8,7 +8,6 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-require 'digest'
 class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
