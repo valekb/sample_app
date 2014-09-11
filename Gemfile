@@ -18,7 +18,8 @@ group :test do
 end
 
 
-
+gem 'sprockets'
+gem 'bcrypt-ruby'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

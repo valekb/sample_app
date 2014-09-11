@@ -8,12 +8,18 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-
+require 'digest'
 class User < ActiveRecord::Base
+	before_save { self.email = email.downcase }
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :nom, :presence => true,
 					:length => { :maximum => 50 }
 	validates :email, :presence => true,
 						:format => { :with => email_regex },
 						:uniqueness => { :case_sensitive => false }
+	has_secure_password
+	
+
+	validates :password, length: { minimum: 6 }
+  
 end
